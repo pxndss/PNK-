@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración de Propiedades - PNK Inmobiliaria</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo-text">PNK INMOBILIARIA</div>
+            <img src="img/portal.jpg" alt="Portal Inmobiliario" class="portal-logo">
+        </div>
+        <nav class="dashboard-nav">
+            <ul>
+                <li><a href="mantenedor_usuarios.html"><i class="fas fa-users"></i> Usuarios</a></li>
+                <li><a href="mantenedor_propiedades.html" class="active"><i class="fas fa-home"></i> Propiedades</a></li>
+                <li><a href="#"><i class="fas fa-user-cog"></i> Mi Perfil</a></li>
+                <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="dashboard-content">
+        <h1><i class="fas fa-home"></i> Administración de Propiedades</h1>
+        <section class="dashboard-section">
+            <h2><i class="fas fa-plus-circle"></i> Ingresar Nueva Propiedad</h2>
+            <form class="crud-form" id="property-form">
+                <div class="form-grupo">
+                    <label for="prop-tipo"><i class="fas fa-tag"></i> Tipo de Propiedad:</label>
+                    <select id="prop-tipo" name="prop-tipo">
+                        <option value="casa">Casa</option>
+                        <option value="departamento">Departamento</option>
+                        <option value="terreno">Terreno</option>
+                    </select>
+                </div>
+                <div class="form-grupo">
+                    <label for="prop-descripcion"><i class="fas fa-file-alt"></i> Descripción:</label>
+                    <textarea id="prop-descripcion" name="prop-descripcion" rows="4" placeholder="Descripción de la propiedad"></textarea>
+                </div>
+                <div class="form-grupo">
+                    <label for="prop-banos"><i class="fas fa-bath"></i> Cantidad de Baños:</label>
+                    <input type="number" id="prop-ban

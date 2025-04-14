@@ -1,0 +1,133 @@
+/* ===== ESTILOS PARA LOS FORMULARIOS DE REGISTRO (PROPIETARIO Y GESTOR) ===== */
+
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.registro-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+}
+
+.registro-titulo {
+    color: #ff8c00;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2em;
+}
+
+.registro-titulo i {
+    margin-right: 10px;
+}
+
+.registro-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+@media (min-width: 600px) {
+    .registro-form {
+        grid-template-columns: 1fr 1fr;
+    }
+    /* Asegúrate de que los campos que ocupan todo el ancho lo sigan haciendo */
+    .registro-form .form-grupo:nth-child(7), /* Teléfono */
+    .registro-form .form-grupo:nth-child(8) /* N° Propiedad / Certificado */ {
+        grid-column: 1 / 3;
+    }
+}
+
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-grupo label {
+    color: #555;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.form-grupo label i {
+    margin-right: 8px;
+    color: #ff8c00;
+}
+
+.registro-form input[type="text"],
+.registro-form input[type="email"],
+.registro-form input[type="password"],
+.registro-form input[type="tel"],
+.registro-form input[type="date"],
+.registro-form input[type="file"],
+.registro-form select {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.registro-form input:focus,
+.registro-form select:focus {
+    outline: none;
+    border-color: #ff8c00;
+    box-shadow: 0 0 5px rgba(255, 140, 0, 0.5);
+}
+
+.registro-form select {
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23ff8c00" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 1em;
+}
+
+.registro-boton {
+    background-color: #ff8c00;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.registro-boton:hover {
+    background-color: #e67700;
+}
+
+.registro-enlace {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9em;
+}
+
+.registro-enlace a {
+    color: #007bff; /* Puedes cambiarlo a naranja si prefieres */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.registro-enlace a:hover {
+    text-decoration: underline;
+}

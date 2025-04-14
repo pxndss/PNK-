@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PNK INMOBILIARIA</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/registro.css">
+    <link rel="stylesheet" href="css/recuperar.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo-text">PNK INMOBILIARIA</div>
+            <img src="../img/portal.jpg" alt="Portal Inmobiliario" class="portal-logo">
+        </div>
+        <nav class="user-links">
+            <a href="registro-propietario.html">Registrar Propietario</a>
+            <a href="registro-gestor.html">Registrar Gestor Freelance</a>
+            <a href="#">Contacto</a>
+        </nav>
+        <div class="auth-dropdown">
+            <h2 class="auth-header">Autenticación</h2>
+            <div class="auth-icon">
+                <img src="../img/autenticacion.jpg" alt="Autenticación Segura">
+            </div>
+            <form class="auth-form">
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="usuario" name="usuario">
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" id="contrasena" name="contrasena">
+                <button type="submit">Ingresar</button>
+            </form>
+            <a href="recuperar.html" class="recover-password">Recuperar Contraseña</a>
+        </div>
+    </header>
+
+    <section class="banner oferta-especial">
+        <img src="../img/pnk_inmobiliario.png" alt="Gran Oferta de Invierno - Descuentos de hasta 20%" class="banner-img">
+    </section>
+
+    <section class="search-bar">
+        <h2>Buscador</h2>
+        <div class="search-inputs">
+            <select name="comuna" id="comuna">
+                <option value="">Comuna</option>
+                <option value="la-serena">La Serena</option>
+                <option value="coquimbo">Coquimbo</option>
+                <option value="ovalle">Ovalle</option>
+            </select>
+            <select name="provincia" id="provincia">
+                <option value="">Provincia</option>
+                <option value="elqui">Elqui</option>
+                <option value="limari">Limarí</option>
+                <option value="choapa">Choapa</option>
+            </select>
+            <input type="text" name="sector" id="sector" placeholder="Sector">
+            <button type="submit">Buscar</button>
+        </div>
+    </section>
+
+    <section class="property-list">
+        <h2>Propiedades Destacadas</h2>
+        <div class="property-grid">
+            <div class="property-card">
+                <img src="../img/propiedad1.jpg" alt="Casa en Venta">
+                <h3>Casa en La Serena</h3>
+                <p>Precio: $170.000.000 + 2% Comisión </p>
+                <a href="#">Ver más</a>
+            </div>
+            <div class="property-card">
+                <img src="../img/propiedad2.jpg" alt="Departamento en Arriendo">
+                <h3>Casa en Arriendo La Serena</h3>
+                <p>Precio: $800.000 (Arriendo)</p>
+                <a href="#">Ver más</a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 PNK Inmobiliaria. Todos los derechos reservados.</p>
+        <div class="footer-links">
+            <a href="#">Términos de Uso</a>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Mapa del Sitio</a>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+</body>
+
+</html>

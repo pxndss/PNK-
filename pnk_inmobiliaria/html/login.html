@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - PNK Inmobiliaria</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo-text">PNK INMOBILIARIA</div>
+            <img src="img/portal.jpg" alt="Portal Inmobiliario" class="portal-logo">
+        </div>
+        <nav class="user-links">
+            <a href="registro-propietario.html">Registrar Propietario</a>
+            <a href="registro-gestor.html">Registrar Gestor Freelance</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="auth-dropdown">
+            <h2 class="auth-header">Autenticación</h2>
+            <div class="auth-icon">
+                <img src="img/autenticacion.jpg" alt="Icono de Autenticación">
+            </div>
+            <form class="auth-form" id="login-form">
+                <label for="usuario">Usuario:</label>
+                <input type="text" id="usuario" name="usuario" required>
+
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" id="contrasena" name="contrasena" required>
+
+                <button type="submit">Ingresar</button>
+            </form>
+            <a href="recuperar.html" class="recover-password">Recuperar Contraseña</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 PNK Inmobiliaria. Todos los derechos reservados.</p>
+        <div class="footer-links">
+            <a href="#">Términos de Uso</a>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Mapa del Sitio</a>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+</body>
+</html>
