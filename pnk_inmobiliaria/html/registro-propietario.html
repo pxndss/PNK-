@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="../css/formularios.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
     <div class="registro-container">
         <h2 class="registro-titulo"><i class="fas fa-user-plus"></i> Registrarse como Propietario</h2>
@@ -23,7 +25,7 @@
 
             <div class="form-grupo">
                 <label for="fecha_nacimiento"><i class="fas fa-calendar-alt"></i> Fecha de Nacimiento:</label>
-                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+                <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" max="" required>
             </div>
 
             <div class="form-grupo">
@@ -62,5 +64,17 @@
             ¿Ya tienes una cuenta? <a href="login.html">Iniciar Sesión</a>
         </div>
     </div>
+
+    <script>
+        // Obtener el campo de fecha
+        const fechaNacimientoInput = document.getElementById('fecha_nacimiento');
+
+        // Obtener la fecha actual en formato AAAA-MM-DD
+        const hoy = new Date().toISOString().split('T')[0];
+
+        // Establecer el atributo max
+        fechaNacimientoInput.setAttribute('max', hoy);
+    </script>
 </body>
+
 </html>

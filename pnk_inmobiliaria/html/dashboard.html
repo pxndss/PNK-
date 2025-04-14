@@ -1,46 +1,48 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - PNK Inmobiliaria</title>
-    <link rel="stylesheet" href="css/dashboard.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>PNK Inmobiliaria - Dashboard</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
 </head>
+
 <body>
-    <header class="dashboard-header">
-        <div class="user-info">
-            <span class="welcome-message">Bienvenido: XXXXXX XXXXXXXXXX</span>
-            <a href="#" class="logout-button">Cerrar Sesión</a>
+    <header>
+        <div class="logo-container">
+            <div class="logo-text">PNK INMOBILIARIA</div>
+            <img src="../img/portal.jpg" alt="Portal Inmobiliario" class="portal-logo">
         </div>
+        <nav class="user-links">
+            <a href="registro-propietario.html">Registrar Propietario</a>
+            <a href="registro-gestor.html">Registrar Gestor Freelance</a>
+            <a href="#">Contacto</a>
+        </nav>
     </header>
 
-    <main class="dashboard-main">
-        <nav class="dashboard-nav">
-            <ul class="nav-list">
-                <li class="nav-item">
-                    <a href="mantenedor_usuarios.html" class="nav-link">
-                        <i class="fas fa-users"></i> Mantenedor de Usuarios
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="mantenedor_propiedades.html" class="nav-link">
-                        <i class="fas fa-home"></i> Mantenedor de Propiedades
-                    </a>
-                </li>
-                </ul>
-        </nav>
-
-        <div class="dashboard-content">
-            <h2>Panel de Control</h2>
-            <p>Seleccione una opción del menú para comenzar.</p>
+    <main class="dashboard-container">
+        <h1>Bienvenido: Usuario Ejemplo</h1>  <div class="dashboard-options">
+            <a href="mantenedor_usuarios.html" class="dashboard-link">Mantenedor de Usuarios</a>
+            <a href="mantenedor_propiedades.html" class="dashboard-link">Mantenedor de Propiedades</a>
+            <a href="#" class="dashboard-link">Cerrar Sesión</a>
         </div>
     </main>
 
-    <footer class="dashboard-footer">
+    <footer>
         <p>&copy; 2025 PNK Inmobiliaria. Todos los derechos reservados.</p>
+        <div class="footer-links">
+            <a href="#">Términos de Uso</a>
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Mapa del Sitio</a>
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
     </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
 </body>
+
 </html>

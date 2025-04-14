@@ -1,59 +1,57 @@
-/* ===== ESTILOS PARA LA PÁGINA DE RECUPERAR CONTRASEÑA ===== */
-
-body {
-    font-family: sans-serif;
-    background-color: #f4f4f4; /* Fondo gris claro */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    padding: 20px; /* Añade un poco de espacio alrededor del contenido principal */
-    box-sizing: border-box;
-}
-
-.auth-dropdown {
-    background-color: #fff; /* Contenedor blanco */
-    padding: 30px;
+.recover-container {
+    width: 400px;
+    margin: 50px auto;
+    background-color: #f9f9f9;
+    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.recover-container h1 {
     text-align: center;
-}
-
-.auth-header {
-    color: #ff8c00; /* Título naranja */
-    margin-bottom: 25px;
-    font-size: 2em;
-}
-
-.auth-form {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-.auth-form label {
-    display: block;
-    margin-bottom: 8px;
-    color: #555;
-    text-align: left;
-    font-weight: bold;
-}
-
-.auth-form input[type="email"] {
-    padding: 12px;
+    color: #333;
     margin-bottom: 20px;
+}
+
+.recover-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.recover-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 16px;
     box-sizing: border-box;
+}
+
+.recover-form button {
+    background-color: #ff8c00;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.recover-form button:hover {
+    background-color: #e67700;
+}
+
+.login-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-link:hover {
+    text-decoration: underline;
 }
