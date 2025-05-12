@@ -3,44 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administración de Propiedades - PNK Inmobiliaria</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <title>Mantenedor de Propiedades - PNK Inmobiliaria</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        #add-mapid, #mapid { height: 180px; border: 1px solid #ccc; margin-bottom: 10px; }
+        .form-checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .form-checkbox-group label {
+            display: flex;
+            align-items: center;
+        }
+        .form-checkbox-group input[type="checkbox"] {
+            margin-right: 5px;
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="logo-container">
-            <crud_propiedadesdiv class="logo-text">PNK INMOBILIARIA</div>
-            <img src="img/portal.jpg" alt="Portal Inmobiliario" class="portal-logo">
+            <div class="logo-text">PNK INMOBILIARIA</div>
+            <img src="../img/portal.jpg" alt="Portal Inmobiliario" class="portal-logo">
         </div>
         <nav class="dashboard-nav">
             <ul>
                 <li><a href="mantenedor_usuarios.html"><i class="fas fa-users"></i> Usuarios</a></li>
                 <li><a href="mantenedor_propiedades.html" class="active"><i class="fas fa-home"></i> Propiedades</a></li>
                 <li><a href="#"><i class="fas fa-user-cog"></i> Mi Perfil</a></li>
-                <li><a href="index.html"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
+                <li><a href="../index.html"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="dashboard-content">
-        <h1><i class="fas fa-home"></i> Administración de Propiedades</h1>
+        <h1><i class="fas fa-home"></i> Mantenedor de Propiedades</h1>
+
         <section class="dashboard-section">
             <h2><i class="fas fa-plus-circle"></i> Ingresar Nueva Propiedad</h2>
-            <form class="crud-form" id="property-form">
+            <form class="crud-form" id="add-property-form">
                 <div class="form-grupo">
-                    <label for="prop-tipo"><i class="fas fa-tag"></i> Tipo de Propiedad:</label>
-                    <select id="prop-tipo" name="prop-tipo">
+                    <label for="add-property-codigo"><i class="fas fa-hashtag"></i> Código:</label>
+                    <input type="text" id="add-property-codigo" name="add-property-codigo" placeholder="Ej: C001">
+                </div>
+                <div class="form-grupo">
+                    <label for="add-property-titulo"><i class="fas fa-heading"></i> Título:</label>
+                    <input type="text" id="add-property-titulo" name="add-property-titulo" placeholder="Título de la propiedad">
+                </div>
+                <div class="form-grupo">
+                    <label for="add-property-tipo"><i class="fas fa-home"></i> Tipo:</label>
+                    <select id="add-property-tipo" name="add-property-tipo">
                         <option value="casa">Casa</option>
                         <option value="departamento">Departamento</option>
                         <option value="terreno">Terreno</option>
                     </select>
                 </div>
                 <div class="form-grupo">
-                    <label for="prop-descripcion"><i class="fas fa-file-alt"></i> Descripción:</label>
-                    <textarea id="prop-descripcion" name="prop-descripcion" rows="4" placeholder="Descripción de la propiedad"></textarea>
+                    <label for="add-property-comuna"><i class="fas fa-map-marker-alt"></i> Comuna:</label>
+                    <input type="text" id="add-property-comuna" name="add-property-comuna" placeholder="Ej: La Serena">
                 </div>
                 <div class="form-grupo">
-                    <label for="prop-banos"><i class="fas fa-bath"></i> Cantidad de Baños:</label>
-                    <input type="number" id="prop-ban
+                    <label for="add-property-precio"><i class="fas fa-dollar-sign"></i> Precio ($):</label>
+                    <input type="number" id="add-property-precio" name="add-property-precio" placeholder="Ingrese precio en pesos">
+                </div>
+                <div class="form-grupo">
+                    <label for="add-property-descripcion"><i class="fas fa-file-alt"></i> Descripción:</label>
+                    <textarea id="add-property-descripcion" name="add-property-descripcion" rows="3"></textarea>
+                </div>
+                <div class="form-grupo">
+                    <label for="add-property-habitaciones"><i class="fas fa-bed"></i> Habitaciones:</label>
+                    <input type="number" id="add-property-habitaciones" name="add-property-habitaciones" min="0">
+                </div>
+                <div class="form-grupo">
+                    <label for="add-property-banos"><i class="fas fa-bath"></i> Baños:</label>
+                    <input type="number" id="add-property-banos" name="add-property-banos" min="0">
+                </div>
+                <div class="form-grupo">
+                    <label for="add-property-area-total"><i class="fas fa-ruler"></i> Área Total (m²):</label>
+                    <input type="number" id="add-property-area-total" name="add-property-area-total" min="0">
+                </div>
+                <div class="form-grupo">
+                    <label for="add-property-area-construida"><i class="fas fa-building"></i> Área Construida (m²):</label>
+                    <input type="number" id="add-property-area-construida" name="add-property-area-construida" min="0">
+                </div>
+                <div class="form-checkbox-group">
+                    <label><input type="checkbox" name="add-property-bodega"> Bodega</label>
+                    <label><input type="checkbox" name="add-property-estacionamiento"> Estacionamiento</label>
+                    <label><input type="checkbox" name="add-property-logia"> Logia</label>
+                    <label><input type="checkbox" name="add-property-cocina-amoblada"> Cocina Amoblada</label>
+                    <label><input type="checkbox" name="add-property-antejardin"> Antejardín</label>
+                    <label><input type="checkbox" name="add-property-patio-trasero"> Patio Trasero</label>
+                    <label><input type="checkbox" name="add-property-piscina"> Piscina</label>
+                </div>
+                <div class="form-grupo">
+                    <label for="add-property-ubicacion"><i class="fas fa-map-marked-alt"></i> Ubicación:</label>
+                    <div id="add-mapid"></div>
+                    <input type="hidden" id="add-property-latitud" name="add-property-latitud">
+                    <input type="hidden" id="add-property-longitud" name="add-property-longitud">
+                    <small>Haga clic en el mapa para seleccionar la ubicación.</small>
+                </div>
+                <button type="submit" class="crud-button"><i class="fas fa-save"></i> Agregar Propiedad</button>
+            </form>
+        </section>
+
+        <section class="dashboard-section">
+            <h2><i class="fas fa-list-alt"></i> Listado de Propiedades</h2>
+            <table class="crud-table" id="property-table">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Título</th>
+                        <th>Tipo</th>
+                        <th>Comuna</th>
+                        <th>Precio ($)</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-property-id="1">
+                        <td>C001</td>
+                        <td>Casa en El Milagro</td>
+                        <td>Casa</td>
+                        <td>La Serena</td>
+                        <td>150000000</td>
+                        <td>Publicada</td>
+                        <td>
+                            <button class="crud-button edit-button" data-property-id="1"><i class="fas fa-edit"></i> Editar</button>
+                            <button class="crud-button delete-button" data-property-id="1"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                            <button class="crud-button deactivate-button" data-property-id="1"><i class="fas fa-eye-slash"></i> Ocultar</button>
+                        </td>
+                    </tr>
+                    <tr data-property-id="2">
+                        <td>D002</td>
+                        <td>Departamento en Centro</td>
+                        <td>Departamento</td>
+                        <td>Coquimbo</td>
+                        <td>80000000</td>
+                        <td>En Revisión</td>
+                        <td>
+                            <button class="crud-button edit-button" data-property-id="2"><i class="fas fa-edit"></i> Editar</button>
+                            <button class="crud-button delete-button" data-property-id="2"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                            <button class="crud-button approve-button" data-property-id="2"><i class="fas fa-check-circle"></i> Aprobar</button>
+                            <button class="crud-button reject-button" data-property-id="2"><i class="fas fa-times-circle"></i> Rechazar</button>
+                        </td>
+                    </tr>
+                    </tbody>
+            </table>
+        </section>
+
+        <section class="dashboard-section" id="edit-property-section" style="display: none;">
+            <h2><i class="fas fa-edit"></i> Editar Propiedad</h2>
+            <form class="crud-form" id="edit-property-form">
+                <div class="form-grupo">
+                    <label for="edit-property-codigo"><i class="fas fa-hashtag"></i> Código:</label>
+                    <input type="text" id="edit-property-codigo" name="edit-property-codigo" readonly>
+                </div>
+                <div class="form-grupo">
+                    <label for="edit-property-titulo"><i class="fas fa-heading"></i> Título:</label>
+                    <input type="text" id="edit-property-titulo" name="edit-property-titulo">
+                </div>
+                <div class="form-grupo">
+                    <label for="edit-property-tipo"><i class="fas fa-home"></i> Tipo:</label>
+                    <select id="edit-property-tipo" name="edit-property-tipo">
+                        <option value="casa">Casa</option>
+                        <option value="departamento">Departamento</option>
+                        <option value="terreno">Terreno</option>
+                    </select>
+                </div>
+                <div class="form-grupo">
+                    <label for="edit-property-comuna"><i class="fas fa-map-marker-alt"></i> Comuna:</label>
+                    <input type="text" id="edit-property-comuna" name="edit-property-comuna">
+                </div>
+                <div class="form-grupo">
+                    <label for="edit-property-precio"><i class="fas fa-dollar-sign"></i> Precio ($):</label>
+                    <input type="number" id="edit-property-precio" name="edit-property-precio">
+                </div>
+                <div class="form-grupo">
+                    <label for="edit-property-descripcion"><i class="fas fa-file-alt"></i> Descripción:</label>
+                    <textarea id="edit-property-descripcion" name="edit-property-descripcion" rows="3"></textarea>
+                </div>
+                <div class="form-grupo">
+                    <label for="edit-property-habitaciones"><i class="fas fa-bed"></i> Habitaciones:</label>
+                    <input type="number" id="edit-property-habitaciones" name="edit-property-habitaciones" min="0">
+                </div>
+                <div class="form-grupo">
+                    <label for="edit-property-banos"><i class="fas fa-bath"></i> Baños:</label>
+                    <input type="number" id="edit-property-banos" name="edit-property-banos" min="0">
+                </div>
+                <div class="form-grupo">
+                    <label for="edit-property-area-total"><i class="fas fa-ruler"></i> Área Total (m²):</label>
+                    <input type="number" id="edit-property-area-total" name="edit-property-area-total" min="0">
+                </div>
+                <div class="form-grupo">
+                    <label for="edit-property-area-construida"><i class="fas fa-building"></i> Área Construida (m²):</label>
+                    <input type="number" id="edit-property-area-construida" name="edit-property-area-construida" min="0">
+                </div>
+                <div class="form-checkbox-group">
+                    <label><input type="checkbox" name="edit-property-bodega"> Bodega</label>
+                    <label><input type="checkbox" name="edit-property-estacionamiento"> Estacionamiento</label>
+                    <label><input type="checkbox" name="edit-property-logia"> Logia</label>
+                    <label><input type="checkbox" name="edit-property-cocina-amoblada"> Cocina Amoblada</label>
+                    <label><input type="checkbox" name="edit-property-antejardin"> Antejardín</label>
+                    <label><input type="checkbox" name="edit-property-patio-trasero"> Patio Trasero</label>
+                    <label><input type="checkbox" name="edit-property-piscina"> Piscina</label>
+                </div>
+                <div class="form-grupo">
+                    <label for="edit-property-ubicacion"><i class="fas fa-map-marked-alt"></i> Ubicación:</label>
+                    <div id="mapid"></div>
+                    <input type="hidden" id="edit-property-latitud" name="edit-property-latitud">
+                    <input type="hidden" id="edit-property-longitud" name="edit-property-longitud">
+                    <small>Haga clic en el mapa para actualizar la ubicación.</small>
+                </div>
+                <input type="hidden" id="edit-property-id" name="edit-property-id">
+                <button type="submit" class="crud-button"><i class="fas fa-save"></i> Guardar Cambios</button>
+                <button type="button" class="crud-button cancel-button"><i class="fas fa-times"></i> Cancelar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 PNK Inmobiliaria. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Este script solo inicializa los mapas. La funcionalidad CRUD completa requiere JavaScript.
+        function initMap(mapId) {
+            const map = L.map(mapId).setView([-30.0000, -71.0000], 13); // Coquimbo por defecto
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            let marker = null;
+            map.on('click', function(e) {
+                const latInput = document.getElementById(mapId.replace('mapid', 'property-latitud'));
+                const lonInput = document.getElementById(mapId.replace('mapid', 'property-longitud'));
+                if (latInput && lonInput) {
+                    latInput.value = e.latlng.lat;
+                    lonInput.value = e.latlng.lng;
+                }
+                if (marker !== null) {
+                    map.removeLayer(marker);
+                }
+                marker = L.marker(e.latlng).addTo(map);
+            });
+            return map;
+        }
+
+        const addMap = initMap('add-mapid');
+        let editMap; // Se inicializará solo cuando se abra la sección de edición
+    </script>
+</body>
+</html>

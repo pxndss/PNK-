@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración de Usuarios - PNK Inmobiliaria</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo-text">PNK INMOBILIARIA</div>
+            <img src="../img/portal.jpg" alt="Portal Inmobiliario" class="portal-logo">
+        </div>
+        <nav class="dashboard-nav">
+            <ul>
+                <li><a href="mantenedor_usuarios.html" class="active"><i class="fas fa-users"></i> Usuarios</a></li>
+                <li><a href="mantenedor_propiedades.html"><i class="fas fa-home"></i> Propiedades</a></li>
+                <li><a href="#"><i class="fas fa-user-cog"></i> Mi Perfil</a></li>
+                <li><a href="../index.html"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="dashboard-content">
+        <h1><i class="fas fa-users"></i> Administración de Usuarios</h1>
+
+        <section class="dashboard-section">
+            <h2><i class="fas fa-plus-circle"></i> Ingresar Nuevo Usuario</h2>
+            <form class="crud-form" id="add-user-form">
+                <div class="form-grupo">
+                    <label for="add-user-rut"><i class="fas fa-id-card"></i> Rut:</label>
+                    <input type="text" id="add-user-rut" name="add-user-rut" placeholder="Ej: 12.345.678-9">
+                </div>
+                <div class="form-grupo">
+                    <label for="add-user-nombre"><i class="fas fa-signature"></i> Nombre Completo:</label>
+                    <input type="text" id="add-user-nombre" name="add-user-nombre" placeholder="Ingrese nombre completo">
+                </div>
+                <div class="form-grupo">
+                    <label for="add-user-email"><i class="fas fa-envelope"></i> Correo Electrónico:</label>
+                    <input type="email" id="add-user-email" name="add-user-email" placeholder="Ingrese correo">
+                </div>
+                <div class="form-grupo">
+                    <label for="add-user-tipo"><i class="fas fa-user-tag"></i> Tipo de Usuario:</label>
+                    <select id="add-user-tipo" name="add-user-tipo">
+                        <option value="administrador">Administrador</option>
+                        <option value="propietario">Propietario</option>
+                        <option value="gestor">Gestor Inmobiliario Free</option>
+                    </select>
+                </div>
+                <button type="submit" class="crud-button"><i class="fas fa-save"></i> Agregar Usuario</button>
+            </form>
+        </section>
+
+        <section class="dashboard-section">
+            <h2><i class="fas fa-list-alt"></i> Listado de Usuarios</h2>
+            <table class="crud-table" id="user-table">
+                <thead>
+                    <tr>
+                        <th>Rut</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Tipo</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-user-id="1">
+                        <td>11.222.333-4</td>
+                        <td>Juan Pérez</td>
+                        <td>juan@example.com</td>
+                        <td>Propietario</td>
+                        <td>Activo</td>
+                        <td>
+                            <button class="crud-button edit-button" data-user-id="1"><i class="fas fa-edit"></i> Editar</button>
+                            <button class="crud-button delete-button" data-user-id="1"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                            <button class="crud-button deactivate-button" data-user-id="1"><i class="fas fa-ban"></i> Desactivar</button>
+                        </td>
+                    </tr>
+                    <tr data-user-id="2">
+                        <td>55.666.777-8</td>
+                        <td>María González</td>
+                        <td>maria@example.com</td>
+                        <td>Gestor</td>
+                        <td>Pendiente</td>
+                        <td>
+                            <button class="crud-button edit-button" data-user-id="2"><i class="fas fa-edit"></i> Editar</button>
+                            <button class="crud-button delete-button" data-user-id="2"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                            <button class="crud-button approve-button" data-user-id="2"><i class="fas fa-check-circle"></i> Aprobar</button>
+                            <button class="crud-button reject-button" data-user-id="2"><i class="fas fa-times-circle"></i> Rechazar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="dashboard-section" id="edit-user-section" style="display: none;">
+            <h2><i class="fas fa-edit"></i> Editar Usuario</h2>
+            <form class="crud-form" id="edit-user-form">
+                <div class="form-grupo">
+                    <label for="edit-user-rut"><i class="fas fa-id-card"></i> Rut:</label>
+                    <input type="text" id="edit-user-rut" name="edit-user-rut" readonly>
+                </div>
+                <div class="form-grupo">
+                    <label for="edit-user-nombre"><i class="fas fa-signature"></i> Nombre Completo:</label>
+                    <input type="text" id="edit-user-nombre" name="edit-user-nombre">
+                </div>
+                <div class="form-grupo">
+                    <label for="edit-user-email"><i class="fas fa-envelope"></i> Correo Electrónico:</label>
+                    <input type="email" id="edit-user-email" name="edit-user-email">
+                </div>
+                <div class="form-grupo">
+                    <label for="edit-user-tipo"><i class="fas fa-user-tag"></i> Tipo de Usuario:</label>
+                    <select id="edit-user-tipo" name="edit-user-tipo">
+                        <option value="administrador">Administrador</option>
+                        <option value="propietario">Propietario</option>
+                        <option value="gestor">Gestor Inmobiliario Free</option>
+                    </select>
+                </div>
+                <input type="hidden" id="edit-user-id" name="edit-user-id">
+                <button type="submit" class="crud-button"><i class="fas fa-save"></i> Guardar Cambios</button>
+                <button type="button" class="crud-button cancel-button"><i class="fas fa-times"></i> Cancelar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 PNK Inmobiliaria. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // --- Funcionalidad para simular el CRUD de Usuarios (Frontend) ---
+
+        const addUserForm = document.getElementById('add-user-form');
+        const userTableBody = document.querySelector('#user-table tbody');
+        const editUserSection = document.getElementById('edit-user-section');
+        const editUserForm = document.getElementById('edit-user-form');
+        const cancelButton = editUserForm.querySelector('.cancel-button');
+
+        let users = [ // Simulación de datos de usuarios
+            { id: 1, rut: '11.222.333-4', nombre: 'Juan Pérez', email: 'juan@example.com', tipo: 'propietario', estado: 'activo' },
+            { id: 2, rut: '55.666.777-8', nombre: 'María González', email: 'maria@example.com', tipo: 'gestor', estado: 'pendiente' }
+        ];
+        let nextUserId = 3;
+
+        // --- READ (Simulado - los datos ya están en la tabla) ---
+        function renderUserTable() {
+            userTableBody.innerHTML = '';
+            users.forEach(user => {
+                const row = userTableBody.insertRow();
+                row.dataset.userId = user.id;
+                row.innerHTML = `
+                    <td>${user.rut}</td>
+                    <td>${user.nombre}</td>
+                    <td>${user.email}</td>
+                    <td>${user.tipo}</td>
+                    <td>${user.estado}</td>
+                    <td>
+                        <button class="crud-button edit-button" data-user-id="${user.id}"><i class="fas fa-edit"></i> Editar</button>
+                        <button class="crud-button delete-button" data-user-id="${user.id}"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                        ${user.tipo === 'gestor' && user.estado === 'pendiente' ? 
+                            '<button class="crud-button approve-button" data-user-id="${user.id}"><i class="fas fa-check-circle"></i> Aprobar</button> <button class="crud-button reject-button" data-user-id="${user.id}"><i class="fas fa-times-circle"></i> Rechazar</button>' : 
+                            (user.estado === 'activo' ? '<button class="crud-button deactivate-button" data-user-id="${user.id}"><i class="fas fa-ban"></i> Desactivar</button>' : '')}
+                    </td>
+                `;
+            });
+
+            // Agregar event listeners a los nuevos botones
+            document.querySelectorAll('.edit-button').forEach(button => {
+                button.addEventListener('click', editUser);
+            });
+            document.querySelectorAll('.delete-button').forEach(button => {
+                button.addEventListener('click', deleteUser);
+            });
+            document.querySelectorAll('.approve-button').forEach(button => {
+                button.addEventListener('click', approveUser);
+            });
+            document.querySelectorAll('.reject-button').forEach(button => {
+                button.addEventListener('click', rejectUser);
+            });
+            document.querySelectorAll('.deactivate-button').forEach(button => {
+                button.addEventListener('click', deactivateUser);
+            });
+        }
+
+        renderUserTable(); // Cargar la tabla inicial
+
+        // --- CREATE (Simulado) ---
+        addUserForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const rut = document.getElementById('add-user-rut').value;
+            const nombre = document.getElementById('add-user-nombre').value;
+            const email = document.getElementById('add-user-email').value;
+            const tipo = document.getElementById('add-user-tipo').value;
+
+            const newUser = { id: nextUserId++, rut, nombre, email, tipo, estado: 'pendiente' };
+            users.push(newUser);
+            renderUserTable();
+            addUserForm.reset();
+        });
+
+        // --- UPDATE (Mostrar formulario de edición) ---
+        function editUser(event) {
+            const userId = parseInt(event.target.dataset.userId);
+            const userToEdit = users.find(user => user.id === userId);
+
+            if (userToEdit) {
+                document.getElementById('edit-user-id').value = userToEdit.id;
+                document.getElementById('edit-user-rut').value = userToEdit.rut;
+                document.getElementById('edit-user-nombre').value = userToEdit.nombre;
+                document.getElementById('edit-user-email').value = userToEdit.email;
+                document.getElementById('edit-user-tipo').value = userToEdit.tipo;
+                editUserSection.style.display = 'block';
+            }
+        }
+
+        // --- UPDATE (Guardar cambios) ---
+        editUserForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const userId = parseInt(document.getElementById('edit-user-id').value);
+            const updatedRut = document.getElementById('edit-user-rut').value;
+            const updatedNombre = document.getElementById('edit-user-nombre').value;
+            const updatedEmail = document.getElementById('edit-user-email').value;
+            const updatedTipo = document.getElementById('edit-user-tipo').value;
+
+            users = users.map(user => 
+                user.id === userId ? { ...user, rut: updatedRut, nombre: updatedNombre, email: updatedEmail, tipo: updatedTipo } : user
+            );
+            renderUserTable();
+            editUserSection.style.display = 'none';
+        });
+
+        // --- DELETE (Simulado) ---
+        function deleteUser(event) {
+            const userId = parseInt(event.target.dataset.userId);
+            users = users.filter(user => user.id !== userId);
+            renderUserTable();
+        }
+
+        // --- Funciones adicionales para cambiar el estado ---
+        function approveUser(event) {
+            const userId = parseInt(event.target.dataset.userId);
+            users = users.map(user => user.id === userId ? { ...user, estado: 'activo' } : user);
+            renderUserTable();
+        }
+
+        function rejectUser(event) {
+            const userId = parseInt(event.target.dataset.userId);
+            users = users.filter(user => user.id !== userId);
+            renderUserTable();
+        }
+
+        function deactivateUser(event) {
+            const userId = parseInt(event.target.dataset.userId);
+            users = users.map(user => user.id === userId ? { ...user, estado: 'inactivo' } : user);
+            renderUserTable();
+        }
+
+        cancelButton.addEventListener('click', () => {
+            editUserSection.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

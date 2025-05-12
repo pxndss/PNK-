@@ -12,7 +12,7 @@
 <body>
     <div class="registro-container">
         <h2 class="registro-titulo"><i class="fas fa-user-plus"></i> Registrarse como Propietario</h2>
-        <form class="registro-form" id="registro-propietario">
+        <form class="registro-form" id="registro-propietario" onsubmit="return simularRegistroExitoso('propietario');">
             <div class="form-grupo">
                 <label for="rut"><i class="fas fa-id-card"></i> Rut:</label>
                 <input type="text" id="rut" name="rut" placeholder="Ej: 12.345.678-9" required>
@@ -66,14 +66,15 @@
     </div>
 
     <script>
-        // Obtener el campo de fecha
         const fechaNacimientoInput = document.getElementById('fecha_nacimiento');
-
-        // Obtener la fecha actual en formato AAAA-MM-DD
         const hoy = new Date().toISOString().split('T')[0];
-
-        // Establecer el atributo max
         fechaNacimientoInput.setAttribute('max', hoy);
+
+        function simularRegistroExitoso(tipoUsuario) {
+            alert(`Registro de ${tipoUsuario} exitoso (simulado). Serás redirigido al Dashboard.`);
+            window.location.href = "../html/dashboard.html";
+            return false; // Evita el envío real del formulario
+        }
     </script>
 </body>
 
