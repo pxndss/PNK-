@@ -1,0 +1,135 @@
+/* ========================================= */
+/* ESTILOS ESPECÍFICOS DEL COMPONENTE LOGIN */
+/* ========================================= */
+
+/* Fondo general de la página de login (afecta al body) */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F8F9FA; /* Gris muy claro para el fondo de la página */
+    display: flex; /* Para centrar el contenido vertical y horizontalmente */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ocupa el 100% de la altura de la vista */
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Evita barras de desplazamiento si el contenido es demasiado grande */
+}
+
+/* Altura completa para el contenedor principal de React (ej. si el Container Fluid no la toma) */
+.login-full-height {
+    min-height: 100vh; /* Asegura que el contenedor abarque toda la altura */
+    display: flex; /* Para que Row.h-100 funcione dentro de él */
+    align-items: center; /* Centra el contenido verticalmente */
+}
+
+/* Estilos para el componente Card de React-Bootstrap */
+.login-card { /* Esta es la clase que añadirías a tu <Card> en Login.jsx */
+    max-width: 400px;
+    margin: 0 auto; /* Centra horizontalmente si no usas Row/Col de Bootstrap para eso */
+    padding: 30px; /* Padding interno del recuadro del login */
+    background: #ffffff; /* Fondo blanco */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 8px 25px rgba(255, 140, 0, 0.2); /* Sombra con un toque naranja */
+    border: none; /* Elimina el borde por defecto de Bootstrap Card */
+}
+
+/* Título "Iniciar Sesión" */
+.login-titulo { /* Clase que añadirías a tu <h2> */
+    text-align: center;
+    color: #d35400; /* Naranja oscuro */
+    margin-bottom: 30px;
+    font-size: 2em; /* Aproximadamente 28px */
+    font-weight: bold;
+}
+
+/* Icono/Logo superior del login */
+.login-icon {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-icon img {
+    width: 120px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Etiquetas de los campos (Form.Label de React-Bootstrap) */
+.form-label { /* Esta es la clase que Bootstrap ya aplica a <Form.Label> */
+    display: block;
+    margin-bottom: 8px;
+    color: #d35400; /* Naranja oscuro */
+    font-weight: 600;
+}
+
+/* Campos de entrada (Form.Control de React-Bootstrap) */
+.form-control { /* Esta es la clase que Bootstrap ya aplica a <Form.Control> */
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #f39c12; /* Borde anaranjado */
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    border-color: #e67e22; /* Borde naranja más fuerte al enfocar */
+    box-shadow: 0 0 5px rgba(230, 126, 34, 0.5); /* Sombra naranja al enfocar */
+    outline: none; /* Elimina el contorno azul por defecto de Bootstrap al enfocar */
+}
+
+/* Botón de "Ingresar" (Button de React-Bootstrap con variant="primary") */
+.btn-primary { /* Esta es la clase que Bootstrap ya aplica a <Button variant="primary"> */
+    background-color: #e67e22; /* Naranja principal para el botón */
+    border-color: #e67e22; /* Borde del mismo color */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.btn-primary:hover {
+    background-color: #d35400; /* Naranja más oscuro al pasar el mouse */
+    border-color: #d35400;
+}
+
+/* Enlace "¿Olvidaste tu contraseña?" y "Regístrate aquí" */
+.text-decoration-none, .login-enlace a { /* Clases para los enlaces */
+    color: #e67e22 !important; /* Naranja para el enlace, !important para asegurar la sobreescritura */
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.text-decoration-none:hover, .login-enlace a:hover {
+    color: #d35400 !important;
+    text-decoration: underline !important; /* Añade subrayado al pasar el mouse */
+}
+
+/* Responsive para pantallas más pequeñas (móviles) */
+@media (max-width: 768px) {
+    .login-card {
+        margin: 20px auto;
+        padding: 15px;
+        border-radius: 10px;
+    }
+    .login-titulo {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-card {
+        margin: 15px;
+        padding: 10px;
+    }
+    .login-titulo {
+        font-size: 1.6em;
+    }
+}
